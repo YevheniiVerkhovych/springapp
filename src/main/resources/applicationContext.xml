@@ -7,9 +7,13 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="testBean"
-          class="ua.verkhovych.springcourse.TestBean">
-        <constructor-arg value="Yevhenii"/>
+    <bean id="musicBean"
+          class="ua.verkhovych.springcourse.ClassicalMusic">
+     </bean>
+
+    <bean id="musicPlayer"
+         class="ua.verkhovych.springcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
