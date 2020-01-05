@@ -10,10 +10,12 @@
 
     <bean id="musicBean"
           class="ua.verkhovych.springcourse.ClassicalMusic">
+
     </bean>
 
     <bean id="musicPlayer"
-          class="ua.verkhovych.springcourse.MusicPlayer">
+          class="ua.verkhovych.springcourse.MusicPlayer"
+          scope = "prototype">
         <property name="music" ref="musicBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
