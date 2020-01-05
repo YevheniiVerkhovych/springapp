@@ -1,15 +1,23 @@
 package ua.verkhovych.springcourse;
 
-public class MusicPlayer {
-    private Music music;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-    //IoC
-    public  MusicPlayer(Music music) {
-        this.music = music;
+@Component
+public class MusicPlayer {
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
+
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public void  playMusic() {
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic() {
+        System.out.println("Playing: " + classicalMusic.getSong());
+        System.out.println("Playing: " + rockMusic.getSong());
+        String s = classicalMusic.getSong() + " & " + rockMusic.getSong();
+        return  s;
     }
 
 }
