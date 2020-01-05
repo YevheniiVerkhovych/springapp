@@ -1,18 +1,26 @@
 package ua.verkhovych.springcourse;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
 public class ClassicalMusic implements Music {
 
-    private ClassicalMusic(){}
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Doing my init...");
+    }
 
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
+    @PreDestroy
+    public void doMyDestroy(){
+        System.out.println("Doing my destroy...");
     }
 
     @Override
     public String getSong() {
-        return "Hungarian Rapsody";
+        return "Hungarian Rhapsody";
     }
 }
